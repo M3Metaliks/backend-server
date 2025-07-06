@@ -1,11 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const multer = require("multer");
-const path = require("path");
+const upload = multer();
 const app = express();
 const pool = require("./db");
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
